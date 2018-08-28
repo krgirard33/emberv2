@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">Ember default</title>
+
+
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body class="container">
+<div class="title">
+    <h1 th:text="${title}">Default Title</h1>
+</div>
+
+<div class="navigation">
+    <nav th:fragment="navigation">
+        <a href="/registration/searcht">Registration</a>
+        <a href="/search/filters">Search</a>
+        <a href="/volunteer/volreg">Volunteer</a>
+        <a href="/placement/places">Placement</a>
+        <a href="/reports/report">Reports</a>
+        <a th:href="@{/logout}">Logout</a>
+    </nav>
+</div>
+</body>
+</html>
