@@ -1,13 +1,11 @@
 package com.nosin.emberv2.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Ticket {
+public class Ticket_List {
+
     @Id
     @GeneratedValue
     private int id;
@@ -24,7 +22,8 @@ public class Ticket {
     @Column(name = "type")private String type;
 
 
-    public Ticket() { }
+
+    /* Constructors */
 
     public int getId() {
         return id;
@@ -116,7 +115,7 @@ public class Ticket {
 
     @Override
     public String toString() {
-        return "Ticket{" +
+        return "Ticket_List{" +
                 "id=" + id +
                 ", ticket_num='" + ticket_num + '\'' +
                 ", buyer_name='" + buyer_name + '\'' +

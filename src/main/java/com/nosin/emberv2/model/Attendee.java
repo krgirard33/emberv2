@@ -1,8 +1,6 @@
 package com.nosin.emberv2.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -66,11 +64,13 @@ public class Attendee {
     @Size(min=1,max=3)
     private int age;
 
-
     private String placement;
 
-
     private String themecamp;
+
+
+
+    /* Constructors */
 
     public int getId() {
         return id;

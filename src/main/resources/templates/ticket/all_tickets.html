@@ -7,23 +7,33 @@
 <nav th:replace="fragments :: navigation"></nav>
 
 <hr/>
-<p th:unless="${attendees.size()}">No attendees yet</p>
+<p th:unless="${tickets.size()}">No tickets yet</p>
 
 <table class="table">
 
     <tr>
-        <th>Burner Name</th>
+        <th>Ticket#</th>
+        <th>Buyer Name</th>
+        <th>Type</th>
         <th>First Name</th>
         <th>Last Name</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Buyer Email</th>
         <th>Edit</th>
     </tr>
 
-    <tr th:each="attendee : ${attendees}">
-        <td th:text="${attendee.burner_name}"></td>
-        <td th:text="${attendee.first_name}"></td>
-        <td th:text="${attendee.last_name}"></td>
+    <tr th:each="ticket : ${tickets}">
+        <td th:text="${ticket.ticket_num}"></td>
+        <td th:text="${ticket.buyer_name}"></td>
+        <td th:text="${ticket.type}"></td>
+        <td th:text="${ticket.first_name}"></td>
+        <td th:text="${ticket.last_name}"></td>
+        <td th:text="${ticket.city}"></td>
+        <td th:text="${ticket.state}"></td>
+        <td th:text="${ticket.buyer_email}"></td>
         <td>
-            <a th:href="@{'/attendee/edit/'+${attendee.id}}">Edit</a>
+            <a th:href="@{'/attendee/register/'+${ticket.id}}">Register</a>
         </td>
     </tr>
 </table>
