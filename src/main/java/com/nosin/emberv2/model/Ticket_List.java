@@ -6,6 +6,9 @@ import java.io.Serializable;
 @Entity
 public class Ticket_List {
 
+    /* Start of getting fk to Attendee */
+    /* private Attendee attendee; */
+
     @Id
     @GeneratedValue
     private int id;
@@ -21,6 +24,12 @@ public class Ticket_List {
     @Column(name = "country")private String country;
     @Column(name = "type")private String type;
 
+    /* @OneToOne
+    @JoinColumn(name = "attendee_id")
+    private Attendee getAttendee() {
+        return attendee;
+    }
+    */
 
 
     /* Constructors */

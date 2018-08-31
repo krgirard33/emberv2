@@ -1,11 +1,11 @@
-id,ticket_num,buyer_name,buyer_email,first_name,last_name,city,state,zip,country,type
-1,2018-0001,Ken Girard,fakeemail@fake.com,Ken,Girard,St. Charles,MO,63301,USA,Adult
-2,2018-0002,Ken Girard,fakeemail@fake.com,Alesia,Clardy,St. Charles,MO,63301,USA,Adult
-3,2018-0003,Angela Normal,fakeemail@fake.com,Angela,Normal,Des Moines,IA,50047,USA,Adult
-4,2018-0004,China Clardy,fakeemail@fake.com,China,Clardy,Springfield,MI,49037,USA,Adult
-5,2018-0005,Random Person,fakeemail@fake.com,Random,Person,Springfield,IL,62629,USA,Adult
-6,2018-0006,Random Person,fakeemail@fake.com,Mini,Person,Springfield,IL,62629,USA,Child
-7,2018-0007,Ken Girard,fakeemail@fake.com,Ken,Girard,St. Charles,MO,63301,USA,Adult
-8,2018-0008,Jack B Nimble,fakeemail@fake.com,Jack B,Nimble,Dallas,TX,75001,USA,Adult
-9,2018-0009,Jack B Nimble,fakeemail@fake.com,Jill,Nimble,Dallas,TX,75001,USA,Child
-10,2018-0010,Sally Seashore,fakeemail@fake.com,Sally,Seashore,Saint Charles,IL,60119,USA,Adult
+id,ticket_num,buyer_name,buyer_email,first_name,last_name,city,state,zip,country,type,address1,address2,age,burner_name,email,phone,placement_id,themecamp_id,vehicle_id,parent_id,trailer_id
+1,2018-0001,Ken Girard,fakeemail@fake.com,Ken,Girard,St. Charles,MO,63301,USA,Adult,,,,,,,,,,,
+2,2018-0002,Ken Girard,fakeemail@fake.com,Alesia,Clardy,St. Charles,MO,63301,USA,Adult,,,,,,,,,,,
+3,2018-0003,Angela Normal,fakeemail@fake.com,Angela,Normal,Des Moines,IA,50047,USA,Adult,,,,,,,,,,,
+4,2018-0004,China Clardy,fakeemail@fake.com,China,Clardy,Springfield,MI,49037,USA,Adult,,,,,,,,,,,
+5,2018-0005,Random Person,fakeemail@fake.com,Random,Person,Springfield,IL,62629,USA,Adult,,,,,,,,,,,
+6,2018-0006,Random Person,fakeemail@fake.com,Mini,Person,Springfield,IL,62629,USA,Child,,,,,,,,,,,
+7,2018-0007,Ken Girard,fakeemail@fake.com,Ken,Girard,St. Charles,MO,63301,USA,Adult,,,,,,,,,,,
+8,2018-0008,Jack B Nimble,fakeemail@fake.com,Jack B,Nimble,Dallas,TX,75001,USA,Adult,,,,,,,,,,,
+9,2018-0009,Jack B Nimble,fakeemail@fake.com,Jill,Nimble,Dallas,TX,75001,USA,Child,,,,,,,,,,,
+10,2018-0010,Sally Seashore,fakeemail@fake.com,Sally,Seashore,Saint Charles,IL,60119,USA,Adult,,,,,,,,,,,

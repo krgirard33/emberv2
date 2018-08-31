@@ -7,68 +7,48 @@ import javax.validation.constraints.Size;
 @Entity
 public class Attendee {
 
+    /*private Ticket_List ticket_list;*/
+
     @Id
     @GeneratedValue
     private int id;
 
-    @NotNull
-    private int ticket_num;
+    @Column(name = "ticket_num") private String ticket_num;
+    @Column(name = "buyer_name") private String buyer_name;
+    @Column(name = "buyer_email") private String buyer_email;
+    @Column(name = "first_name") private String first_name;
+    @Column(name = "last_name") private String last_name;
+    @Column(name = "city") private String city;
+    @Column(name = "state") private String state;
+    @Column(name = "zipcode") private String zipcode;
+    @Column(name = "country") private String country;
+    @Column(name = "type") private String type;
+    @Column(name = "address1") private String address1;
+    @Column(name = "address2") private String address2;
+    @Column(name = "age") private int age;
+    @Column(name = "burner_name") private String burner_name;
+    @Column(name = "email") private String email;
+    @Column(name = "phone") private String phone;
+    @Column(name = "placement_id") private int placement_id;
+    @Column(name = "themecamp_id") private int themecamp_id;
+    @Column(name = "vehicle_id") private int vehicle_id;
+    @Column(name = "parent_id") private int parent_id;
+    @Column(name = "trailer_id") private int trailer_id;
 
-    @NotNull
-    @Size(min=3, max=35)
-    private String buyer_name;
+    /**
+    @OneToOne(targetEntity = Ticket_List.class, mappedBy = "ticket_list", fetch = FetchType.EAGER)
+    public Ticket_List getTicket_list() {
+        return ticket_list;
+    }
 
-    private String buyer_email;
+    public void setTicket_list(Ticket_List ticket_list) {
+        this.ticket_list = ticket_list;
+    }
 
-    @NotNull
-    @Size(min=3, max=25)
-    private String first_name;
-
-    @NotNull
-    @Size(min=3, max=25)
-    private String last_name;
-
-    @Size(min=0, max=25)
-    private String burner_name;
-
-    @NotNull
-    @Size(min=3, max=50)
-    private String address1;
-
-    @Size(min=0, max=50)
-    private String address2;
-
-    @NotNull
-    @Size(min=3, max=25)
-    private String city;
-
-    @NotNull
-    @Size(min=1, max=5)
-    private String state;
-
-    @NotNull
-    @Size(min=3, max=10)
-    private String zipcode;
-
-    @NotNull
-    @Size(min=3, max=25)
-    private String country;
-
-    @Size(min=0, max=25)
-    private String email;
-
-    @Size(min=0, max=10)
-    private String phone;
-
-    @NotNull
-    @Size(min=1,max=3)
-    private int age;
-
-    private String placement;
-
-    private String themecamp;
-
-
+    public Attendee(Ticket_List ticket_list) {
+        this.ticket_list = ticket_list;
+    }
+    **/
 
     /* Constructors */
 
@@ -80,11 +60,11 @@ public class Attendee {
         this.id = id;
     }
 
-    public int getTicket_num() {
+    public String getTicket_num() {
         return ticket_num;
     }
 
-    public void setTicket_num(int ticket_num) {
+    public void setTicket_num(String ticket_num) {
         this.ticket_num = ticket_num;
     }
 
@@ -120,30 +100,6 @@ public class Attendee {
         this.last_name = last_name;
     }
 
-    public String getBurner_name() {
-        return burner_name;
-    }
-
-    public void setBurner_name(String burner_name) {
-        this.burner_name = burner_name;
-    }
-
-    public String getAddress1() {
-        return address1;
-    }
-
-    public void setAddress1(String address1) {
-        this.address1 = address1;
-    }
-
-    public String getAddress2() {
-        return address2;
-    }
-
-    public void setAddress2(String address2) {
-        this.address2 = address2;
-    }
-
     public String getCity() {
         return city;
     }
@@ -176,6 +132,46 @@ public class Attendee {
         this.country = country;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getAddress1() {
+        return address1;
+    }
+
+    public void setAddress1(String address1) {
+        this.address1 = address1;
+    }
+
+    public String getAddress2() {
+        return address2;
+    }
+
+    public void setAddress2(String address2) {
+        this.address2 = address2;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getBurner_name() {
+        return burner_name;
+    }
+
+    public void setBurner_name(String burner_name) {
+        this.burner_name = burner_name;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -192,27 +188,43 @@ public class Attendee {
         this.phone = phone;
     }
 
-    public int getAge() {
-        return age;
+    public int getPlacement_id() {
+        return placement_id;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setPlacement_id(int placement_id) {
+        this.placement_id = placement_id;
     }
 
-    public String getPlacement() {
-        return placement;
+    public int getThemecamp_id() {
+        return themecamp_id;
     }
 
-    public void setPlacement(String placement) {
-        this.placement = placement;
+    public void setThemecamp_id(int themecamp_id) {
+        this.themecamp_id = themecamp_id;
     }
 
-    public String getThemecamp() {
-        return themecamp;
+    public int getVehicle_id() {
+        return vehicle_id;
     }
 
-    public void setThemecamp(String themecamp) {
-        this.themecamp = themecamp;
+    public void setVehicle_id(int vehicle_id) {
+        this.vehicle_id = vehicle_id;
+    }
+
+    public int getParent_id() {
+        return parent_id;
+    }
+
+    public void setParent_id(int parent_id) {
+        this.parent_id = parent_id;
+    }
+
+    public int getTrailer_id() {
+        return trailer_id;
+    }
+
+    public void setTrailer_id(int trailer_id) {
+        this.trailer_id = trailer_id;
     }
 }
