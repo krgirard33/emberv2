@@ -12,16 +12,22 @@
         <table class="table">
 
             <tr>
-                <th>Burner Name</th>
+                <th>Ticket#</th>
+                <th>Buyer</th>
                 <th>First Name</th>
                 <th>Last Name</th>
+                <th>City</th>
+                <th>State</th>
                 <th>Edit</th>
             </tr>
 
             <tr th:each="attendee : ${attendees}">
-                <td th:text="${attendee.burner_name}"></td>
+                <td th:text="${attendee.ticket_num}"></td>
+                <td th:text="${attendee.buyer_name}"></td>
                 <td th:text="${attendee.first_name}"></td>
                 <td th:text="${attendee.last_name}"></td>
+                <td th:text="${attendee.city}"></td>
+                <td th:text="${attendee.state}"></td>
                 <td>
                     <a th:href="@{'/attendee/edit/'+${attendee.id}}">Edit</a>
                 </td>
