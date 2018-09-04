@@ -1,4 +1,4 @@
-id,ticket_num,buyer_name,buyer_email,first_name,last_name,city,state,zip,country,type,address1,address2,age,burner_name,email,phone,placement_id,themecamp_id,vehicle_id,parent_id,trailer_id
+id,ticket_num,buyer_name,buyer_email,first_name,last_name,city,state,zip,country,ticketType,address1,address2,age,burner_name,email,phone,placement_id,themecamp_id,vehicle_id,parent_id,trailer_id
 1,2018-0001,Ken Girard,fakeemail@fake.com,Ken,Girard,St. Charles,MO,63301,USA,Adult,,,,,,,,,,,
 2,2018-0002,Ken Girard,fakeemail@fake.com,Alesia,Clardy,St. Charles,MO,63301,USA,Adult,,,,,,,,,,,
 3,2018-0003,Angela Normal,fakeemail@fake.com,Angela,Normal,Des Moines,IA,50047,USA,Adult,,,,,,,,,,,

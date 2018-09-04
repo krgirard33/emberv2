@@ -11,5 +11,5 @@ CREATE TABLE ticket_list (
     state VARCHAR(5),
     zip INT(10),
     country VARCHAR(25),
-    type VARCHAR(5),
+    ticketType VARCHAR(5),
     );
