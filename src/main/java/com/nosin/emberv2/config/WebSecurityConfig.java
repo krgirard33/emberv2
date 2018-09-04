@@ -16,7 +16,7 @@ package com.nosin.emberv2.config;
  * limitations under the License.
  */
 
-
+/*
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -38,4 +38,7 @@ public class WebSecurityConfig {
     * For later use
     * https://stackoverflow.com/questions/49847791/java-spring-security-user-withdefaultpasswordencoder-is-deprecated
      */
+/*
 }
+
+ */
