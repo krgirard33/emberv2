@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -44,4 +45,25 @@ public class TicketTypeController {
 
         return "redirect:";
     }
+
+    @RequestMapping(value = "type/edit/(ticketTypeId)", method = RequestMethod.GET)
+    public String displayEditTicketTypeForm(Model model, @PathVariable int ticketTypeId) {
+        TicketType editTicketType = ticketTypeDao.findById(ticketTypeId).get();
+
+        model.addAttribute("ticketType", editTicketType);
+        model.addAttribute("title", "Ember: Edit Ticket Type");
+        return "type/edit/(ticketTypeId)";
+    }
+
+    @RequestMapping(value = "type/edit/(ticketTypeId)", method = RequestMethod.POST)
+    public String processEditTicketTypeForm(int ticketType_id, String name) {
+
+        TicketType editTicketType = ticketTypeDao.findById(ticketType_id).get();
+
+        editTicketType.setName(name);
+        ticketTypeDao.save(editTicketType);
+        return "redirect:..";
+    }
+
+
 }
