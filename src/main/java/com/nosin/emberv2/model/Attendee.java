@@ -1,8 +1,6 @@
 package com.nosin.emberv2.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 public class Attendee {
@@ -13,44 +11,67 @@ public class Attendee {
     @GeneratedValue
     private int id;
 
-    @Column(name = "ticket_num") private String ticket_num;
-    @Column(name = "buyer_name") private String buyer_name;
-    @Column(name = "buyer_email") private String buyer_email;
-    @Column(name = "first_name") private String first_name;
-    @Column(name = "last_name") private String last_name;
-    @Column(name = "city") private String city;
-    @Column(name = "state") private String state;
-    @Column(name = "zipcode") private String zipcode;
-    @Column(name = "country") private String country;
-    @Column(name = "type") private String type;
-    @Column(name = "address1") private String address1;
-    @Column(name = "address2") private String address2;
-    @Column(name = "age") private int age;
-    @Column(name = "burner_name") private String burner_name;
-    @Column(name = "email") private String email;
-    @Column(name = "phone") private String phone;
-    @Column(name = "placement_id") private int placement_id;
-    @Column(name = "themecamp_id") private int themecamp_id;
-    @Column(name = "vehicle_id") private int vehicle_id;
-    @Column(name = "parent_id") private int parent_id;
-    @Column(name = "trailer_id") private int trailer_id;
+    @Column(name = "ticket_num")
+    private String ticket_num;
+    @Column(name = "buyer_name")
+    private String buyer_name;
+    @Column(name = "buyer_email")
+    private String buyer_email;
+    @Column(name = "first_name")
+    private String first_name;
+    @Column(name = "last_name")
+    private String last_name;
+    @Column(name = "city")
+    private String city;
+    @Column(name = "state")
+    private String state;
+    @Column(name = "zipcode")
+    private String zipcode;
+    @Column(name = "country")
+    private String country;
+    @Column(name = "address1")
+    private String address1;
+    @Column(name = "address2")
+    private String address2;
+    @Column(name = "age")
+    private int age;
+    @Column(name = "burner_name")
+    private String burner_name;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "phone")
+    private String phone;
 
-    /**
-    @OneToOne(targetEntity = Ticket_List.class, mappedBy = "ticket_list", fetch = FetchType.EAGER)
-    public Ticket_List getTicket_list() {
-        return ticket_list;
+
+    @ManyToOne
+    private TicketType ticketType;
+
+    public Attendee() {
     }
 
-    public void setTicket_list(Ticket_List ticket_list) {
-        this.ticket_list = ticket_list;
+    public Attendee(int id, String ticket_num, String buyer_name,
+                    String buyer_email, String first_name, String last_name,
+                    String city, String state, String zipcode, String country,
+                    String address1, String address2, int age, String burner_name,
+                    String email, String phone, TicketType ticketType) {
+        this.id = id;
+        this.ticket_num = ticket_num;
+        this.buyer_name = buyer_name;
+        this.buyer_email = buyer_email;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.city = city;
+        this.state = state;
+        this.zipcode = zipcode;
+        this.country = country;
+        this.address1 = address1;
+        this.address2 = address2;
+        this.age = age;
+        this.burner_name = burner_name;
+        this.email = email;
+        this.phone = phone;
+        this.ticketType = ticketType;
     }
-
-    public Attendee(Ticket_List ticket_list) {
-        this.ticket_list = ticket_list;
-    }
-    **/
-
-    /* Constructors */
 
     public int getId() {
         return id;
@@ -132,14 +153,6 @@ public class Attendee {
         this.country = country;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getAddress1() {
         return address1;
     }
@@ -188,43 +201,29 @@ public class Attendee {
         this.phone = phone;
     }
 
-    public int getPlacement_id() {
-        return placement_id;
+    public TicketType getTicketType() {
+        return ticketType;
     }
 
-    public void setPlacement_id(int placement_id) {
-        this.placement_id = placement_id;
+    public void setTicketType(TicketType ticketType) {
+        this.ticketType = ticketType;
     }
 
-    public int getThemecamp_id() {
-        return themecamp_id;
-    }
+    /**
+     @OneToOne(targetEntity = Ticket_List.class, mappedBy = "ticket_list", fetch = FetchType.EAGER)
+     public Ticket_List getTicket_list() {
+     return ticket_list;
+     }
 
-    public void setThemecamp_id(int themecamp_id) {
-        this.themecamp_id = themecamp_id;
-    }
+     public void setTicket_list(Ticket_List ticket_list) {
+     this.ticket_list = ticket_list;
+     }
 
-    public int getVehicle_id() {
-        return vehicle_id;
-    }
+     public Attendee(Ticket_List ticket_list) {
+     this.ticket_list = ticket_list;
+     }
+     **/
 
-    public void setVehicle_id(int vehicle_id) {
-        this.vehicle_id = vehicle_id;
-    }
+    /* Constructors */
 
-    public int getParent_id() {
-        return parent_id;
-    }
-
-    public void setParent_id(int parent_id) {
-        this.parent_id = parent_id;
-    }
-
-    public int getTrailer_id() {
-        return trailer_id;
-    }
-
-    public void setTrailer_id(int trailer_id) {
-        this.trailer_id = trailer_id;
-    }
 }

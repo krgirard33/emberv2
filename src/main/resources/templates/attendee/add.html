@@ -1,17 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments :: head"></head>
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
 
 <nav th:replace="fragments :: navigation"></nav>
 
+<hr/>
+
 <form method="post" style="max-width:600px;" th:object="${attendee}">
     <h1>Ticket & Buyer</h1>
     <div class="form-group">
-        <label th:for="misc">Misc</label>
+        <label th:for="ticket_num">Ticket#</label>
+        <input class="form-control" th:field="*{ticket_num}" />
+        <span th:errors="*{first_name}" class="error"></span>
         <p th:text="*{ticket_num}"></p>
         <p th:text="*{buyer_name}"></p>
+    </div>
+    <div class="form-group">
+        <label th:for="buyer_name">Buyer Name</label>
+        <input class="form-control" th:field="*{buyer_name}" />
+        <span th:errors="*{buyer_name}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="buyer_email">Buyer Email</label>
+        <input class="form-control" th:field="*{buyer_email}" />
+        <span th:errors="*{buyer_email}" class="error"></span>
     </div>
 
     <h1>Attendee Name & Age</h1>
@@ -37,21 +51,23 @@
     </div>
     <div class="form-group">
         <label th:for="ticketType">Type</label>
-        <select name="ticketTypeId">
+        <select name="typeId">
             <option th:each = "ticketType : ticketTypes"
                     th:text = "${ticketType.name}"
-                    th:value = "${ticketType.id}"
-                    >
+                    th:value = "${ticketType.id}">
             </option>
         </select>
     </div>
 
     <h1>Contact</h1>
     <div class="form-group">
-        <label th:for="contact">Phone & Email</label>
+        <label th:for="phone">Phone</label>
         <input class="form-control" th:field="*{phone}" />
-        <input class="form-control" th:field="*{email}" />
         <span th:errors="*{phone}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="email">Email</label>
+        <input class="form-control" th:field="*{email}" />
         <span th:errors="*{email}" class="error"></span>
     </div>
 
@@ -82,10 +98,9 @@
         <span th:errors="*{zipcode}" class="error"></span>
     </div>
 
-
-    <input type="hidden" th:value="${attendee.id}" name="attendee_id" />
-    <input type="submit" value="Edit attendee" />
+    <input type="submit" value="Add attendee" />
 </form>
+
 
 </body>
 </html>
