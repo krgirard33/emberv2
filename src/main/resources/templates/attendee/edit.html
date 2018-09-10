@@ -39,9 +39,9 @@
         <label th:for="ticketType">Type</label>
         <select name="ticketTypeId">
             <option th:each = "ticketType : ticketTypes"
-                    th:text = "${ticketType.name}"
-                    th:value = "${ticketType.id}"
-                    >
+                    th:text = "${ticket_type.name}"
+                    th:value = "${ticket_type.id}"
+            >
             </option>
         </select>
     </div>
