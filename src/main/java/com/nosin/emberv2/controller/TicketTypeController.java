@@ -64,6 +64,4 @@ public class TicketTypeController {
         ticketTypeDao.save(editTicketType);
         return "redirect:..";
     }
-
-
 }

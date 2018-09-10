@@ -48,11 +48,13 @@ public class AttendeeController {
             return "attendee/add";
         }
         /*
-        * ask about ticketTypeDao.findById(ticketTypeId).isPresent().get();
-        */
+         * ask about ticketTypeDao.findById(ticketTypeId).isPresent().get();
+         */
         TicketType type = ticketTypeDao.findById(ticketTypeId).get();
 
         newAttendee.setTicketType(type);
+
+
         attendeeDao.save(newAttendee);
         return "redirect:";
     }
@@ -70,14 +72,13 @@ public class AttendeeController {
     }
 
     @RequestMapping(value = "edit/{attendeeId}", method = RequestMethod.POST)
-    public String processEditattendeeForm(int attendee_id, String first_name, String last_name, TicketType ticketType) {
+    public String processEditattendeeForm(int attendeeId, String first_name, String last_name, TicketType ticketType) {
 
-        Attendee editAttendee = attendeeDao.findById(attendee_id).get();
+        Attendee editAttendee = attendeeDao.findById(attendeeId).get();
 
         editAttendee.setFirst_name(first_name);
         editAttendee.setLast_name(last_name);
         attendeeDao.save(editAttendee);
         return "redirect:";
     }
-
 }
