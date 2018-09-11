@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.List;
@@ -21,33 +22,79 @@ public class UserController {
     @Autowired
     UserDao userDao;
 
-    @RequestMapping(value = "adduser", method = RequestMethod.GET)
+    @RequestMapping(value = "add", method = RequestMethod.GET)
     public String addUser(Model model) {
         model.addAttribute("title", "Create Account");
         model.addAttribute("user", new User());
-        return "user/adduser";
+        return "user/add";
     }
 
-    @RequestMapping(value = "adduser", method = RequestMethod.POST())
-    public  String addUser(Model model, @ModelAttribute @Valid User user,
-                           Errors errors, String confirm, HttpServletResponse response) {
-        List<User>  uList = userDao.findByUsername(user.getUsername());
-        if(uList.isEmpty()){
-            model.addAttribute("message", "Invalid Username");
-            model.addAttribute("title", "Login");
-            return "users/login";
-        }
+    @RequestMapping(value = "add", method = RequestMethod.POST)
+    public String addUser(Model model, @ModelAttribute @Valid User user,
+                          Errors errors, String confirm, HttpServletResponse response) {
+        List<User> sameUsername = userDao.findByUsername(user.getUsername());
 
-        User loggedIn = uList.get(0);
-        if(loggedIn.getPassword().equals(user.getPassword())){
+        if (!errors.hasErrors() && user.getPassword().equals(confirm) && sameUsername.isEmpty()) {
+            model.addAttribute("user", user);
+            userDao.save(user);
+
             Cookie chip = new Cookie("user", user.getUsername());
             chip.setPath("/");
             response.addCookie(chip);
             return "redirect:/home";
         } else {
+            model.addAttribute("user", user);
+            model.addAttribute("title", "Create User");
+            if (!user.getPassword().equals(confirm)) {
+                model.addAttribute("message", "Passwords don't match");
+                user.setPassword("");
+            }
+            if (!sameUsername.isEmpty()) {
+                model.addAttribute("message", "Username already in use, try a different one.");
+            }
+            return "user/add";
+        }
+    }
+    @RequestMapping(value = "login", method = RequestMethod.GET)
+    public String login (Model model){
+        model.addAttribute("title", "Login");
+        model.addAttribute(new User());
+        return "user/login";
+    }
+
+    @RequestMapping(value="login", method = RequestMethod.POST)
+    public String loginUser(Model model, @ModelAttribute User user, HttpServletResponse response){
+        List<User> thisUser = userDao.findByUsername(user.getUsername());
+        if(thisUser.isEmpty()){
+            model.addAttribute("message", "Invalid Username");
+            model.addAttribute("title", "Login");
+            return "user/login";
+        }
+
+        User loggedIn = thisUser.get(0);
+        if(loggedIn.getPassword().equals(user.getPassword())){
+            Cookie chip = new Cookie("user", user.getUsername());
+            chip.setPath("/");
+            response.addCookie(chip);
+            return "redirect:/home";
+        }else{
             model.addAttribute("message", "Invalid Password");
             model.addAttribute("title", "Login");
             return "user/login";
         }
+    }
+
+
+    @RequestMapping(value ="logout")
+    public String logout(Model model, HttpServletRequest request, HttpServletResponse response){
+        Cookie[] cookies = request.getCookies();
+        if(cookies != null){
+            for (Cookie chip : cookies){
+                chip.setMaxAge(0);
+                chip.setPath("/");
+                response.addCookie(chip);
+            }
+        }
+        return "redirect:/user/login";
     }
 }

@@ -17,7 +17,7 @@ public class User {
     private String username;
 
     @NotNull
-    @Size(min = 6)
+    @Size(min = 5)
     private String password;
 
     /* TODO: Add in role */
@@ -36,7 +36,7 @@ public class User {
         return username;
     }
 
-    public void setUserEmname(String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 

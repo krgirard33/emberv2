@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<hr/>
+<p th:unless="${vehicles.size()}">No users yet</p>
+
+<table class="table">
+
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Edit</th>
+    </tr>
+
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.role}"></td>
+        <td>
+            <a th:href="@{'/user/edit/'+${user.id}}">Edit</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
