@@ -51,7 +51,7 @@
     </div>
     <div class="form-group">
         <label th:for="ticketType">Type</label>
-        <select name="typeId">
+        <select name="type_id">
             <option th:each = "ticketType : ticketTypes"
                     th:text = "${ticketType.name}"
                     th:value = "${ticketType.id}">

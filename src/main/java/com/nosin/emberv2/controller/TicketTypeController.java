@@ -46,6 +46,7 @@ public class TicketTypeController {
         return "redirect:";
     }
 
+
     @RequestMapping(value = "type/edit/(ticketTypeId)", method = RequestMethod.GET)
     public String displayEditTicketTypeForm(Model model, @PathVariable int ticketTypeId) {
         TicketType editTicketType = ticketTypeDao.findById(ticketTypeId).get();
