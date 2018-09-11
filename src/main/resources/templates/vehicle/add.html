@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+    <h1 th:text="${title}">Default Title</h1>
+
+    <nav th:replace="fragments :: navigation"></nav>
+
+    <hr/>
+    <form method="post" style="max-width:600px;" th:object="${vehicle}">
+        <div class="form-group">
+            <label th:for="licensePlate">License Plate</label>
+            <input class="form-control" th:field="*{licensePlate}" />
+            <span th:errors="*{licensePlate}" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label th:for="make">Make</label>
+            <input class="form-control" th:field="*{make}" />
+            <span th:errors="*{make}" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label th:for="model">Model</label>
+            <input class="form-control" th:field="*{model}" />
+            <span th:errors="*{model}" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label th:for="color">Color</label>
+            <input class="form-control" th:field="*{color}" />
+            <span th:errors="*{color}" class="error"></span>
+        </div>
+        <input type="hidden" th:value="${attendee.id}" name="attendee_id" />
+        <input type="submit" value="Add Vehicle" />
+    </form>
 
 </body>
 </html>

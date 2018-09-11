@@ -3,6 +3,7 @@ package com.nosin.emberv2.controller;
 import com.nosin.emberv2.model.Vehicle;
 import com.nosin.emberv2.model.data.VehicleDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
 
+@Controller
+@RequestMapping(value = "vehicle")
 public class VehicleController {
 
     @Autowired

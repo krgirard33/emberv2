@@ -21,17 +21,20 @@ public class Vehicle {
 
     private String color;
 
+    /*
     private List<Attendee> attendees = new ArrayList<>(); // Links attendee to their vehicle
+     */
 
     public Vehicle() { }
 
-    public Vehicle(int id, String licensePlate, String make, String model, String color, List<Attendee> attendees) {
+    /* add in List<Attendee> attendees */
+    public Vehicle(int id, String licensePlate, String make, String model, String color) {
         this.id = id;
         this.licensePlate = licensePlate;
         this.make = make;
         this.model = model;
         this.color = color;
-        this.attendees = attendees;
+        /*this.attendees = attendees;*/
     }
 
     public int getId() {
@@ -74,6 +77,7 @@ public class Vehicle {
         this.color = color;
     }
 
+    /*
     public List<Attendee> getAttendees() {
         return attendees;
     }
@@ -81,4 +85,5 @@ public class Vehicle {
     public void setAttendees(List<Attendee> attendees) {
         this.attendees = attendees;
     }
+    */
 }

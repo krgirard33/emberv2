@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
 
+<nav th:replace="fragments :: navigation"></nav>
+
+<hr/>
+<p th:unless="${vehicles.size()}">No vehicles yet</p>
+
+<table class="table">
+
+    <tr>
+        <th>ID</th>
+        <th>License Plate</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Color</th>
+        <th>Owner</th>
+        <th>Edit</th>
+    </tr>
+
+    <tr th:each="vehicle : ${vehicles}">
+        <td th:text="${vehicle.id}"></td>
+        <td th:text="${vehicle.licensePlate}"></td>
+        <td th:text="${ticketType.make}"></td>
+        <td th:text="${vehicle.model}"></td>
+        <td th:text="${ticketType.color}"></td>
+        <td th:text="${vehicle.attendee.id}"></td>
+        <td>
+            <a th:href="@{'/vehicle/edit/'+${vehicle.id}}">Edit</a>
+        </td>
+    </tr>
+</table>
 </body>
 </html>
