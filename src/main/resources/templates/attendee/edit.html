@@ -38,9 +38,9 @@
     <div class="form-group">
         <label th:for="ticketType">Type</label>
         <select name="ticketTypeId">
-            <option th:each = "ticketType : ticketTypes"
+            <option th:each = "ticketType : ${ticketTypes}"
                     th:text = "${ticketType.name}"
-                    th:value = "${attendee.ticketType.id}"
+                    th:value = "${ticketType.id}"
             >
             </option>
         </select>
