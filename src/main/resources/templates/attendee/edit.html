@@ -82,8 +82,20 @@
         <span th:errors="*{zipcode}" class="error"></span>
     </div>
 
+    <h1>Placement & Themecamp</h1>
+    <div class="form-group">
+        <label th:for="themecamp">Themecamp</label>
+        <select name="themecampId">
+            <option th:each = "themecamp : ${themecamps}"
+                    th:text = "${themecamp.themecampName}"
+                    th:value = "${themecamp.id}"
+            >
+            </option>
+        </select>
+    </div>
 
-    <input type="hidden" th:value="${attendee.id}" name="attendee_id" />
+
+    <input type="hidden" th:value="${id}" name="attendee_id" />
     <input type="submit" value="Edit attendee" />
 </form>
 

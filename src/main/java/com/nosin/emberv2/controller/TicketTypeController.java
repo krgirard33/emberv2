@@ -35,7 +35,7 @@ public class TicketTypeController {
 
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String add(Model model, @ModelAttribute @Valid TicketType newTicketType, Errors errors) {
+    public String addTicketType(Model model, @ModelAttribute @Valid TicketType newTicketType, Errors errors) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Ember: Add TicketType");
             return "type/add";

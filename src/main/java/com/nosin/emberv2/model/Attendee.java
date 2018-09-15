@@ -8,7 +8,7 @@ public class Attendee {
     /*private Ticket_List ticket_list;*/
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "ticket_num")
@@ -46,6 +46,9 @@ public class Attendee {
     @ManyToOne
     private TicketType ticketType;
 
+    @ManyToOne
+    private Themecamp themecamp;
+
     public Attendee() {
     }
 
@@ -53,7 +56,7 @@ public class Attendee {
                     String buyer_email, String first_name, String last_name,
                     String city, String state, String zipcode, String country,
                     String address1, String address2, int age, String burner_name,
-                    String email, String phone, TicketType ticketType) {
+                    String email, String phone, TicketType ticketType, Themecamp themecamp) {
         this.id = id;
         this.ticket_num = ticket_num;
         this.buyer_name = buyer_name;
@@ -71,6 +74,7 @@ public class Attendee {
         this.email = email;
         this.phone = phone;
         this.ticketType = ticketType;
+        this.themecamp = themecamp;
     }
 
     public int getId() {
@@ -208,6 +212,10 @@ public class Attendee {
     public void setTicketType(TicketType ticketType) {
         this.ticketType = ticketType;
     }
+
+    public Themecamp getThemecamp() { return themecamp; }
+
+    public void setThemecamp(Themecamp themecamp) { this.themecamp = themecamp; }
 
     /**
      @OneToOne(targetEntity = Ticket_List.class, mappedBy = "ticket_list", fetch = FetchType.EAGER)
