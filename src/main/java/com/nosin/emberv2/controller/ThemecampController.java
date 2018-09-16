@@ -20,7 +20,7 @@ public class ThemecampController {
     @Autowired
     ThemecampDao themecampDao;
 
-    @RequestMapping(value = "")
+    @RequestMapping(value = {"", "index"})
     public String index(Model model) {
         model.addAttribute("title", "Ember: Themecamps");
         model.addAttribute("themecamps", themecampDao.findAll());

@@ -22,6 +22,14 @@ public class UserController {
     @Autowired
     UserDao userDao;
 
+
+    @RequestMapping(value = {"", "index"})
+    public String index(Model model) {
+        model.addAttribute("title", "Ember: Users");
+        model.addAttribute("users", userDao.findAll());
+        return "user/index";
+    }
+
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String addUser(Model model) {
         model.addAttribute("title", "Create Account");

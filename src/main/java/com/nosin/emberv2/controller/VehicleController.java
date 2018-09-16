@@ -20,18 +20,18 @@ public class VehicleController {
     @Autowired
     VehicleDao vehicleDao;
 
-    @RequestMapping(value = "")
+    @RequestMapping(value = {"", "index"})
     public String index(Model model) {
         model.addAttribute("title", "Ember: Vehicle");
         model.addAttribute("vehicles", vehicleDao.findAll());
-        return "type/index";
+        return "vehicle/index";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public  String addVehicle(Model model) {
         model.addAttribute(new Vehicle());
         model.addAttribute("title", "Ember: Add Vehicle");
-        return "type/add";
+        return "vehicle/add";
     }
 
 
@@ -39,7 +39,7 @@ public class VehicleController {
     public String add(Model model, @ModelAttribute @Valid Vehicle newVehicle, Errors errors) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Ember: Add Vehicle");
-            return "type/add";
+            return "vehicle/add";
         }
 
         vehicleDao.save(newVehicle);
@@ -47,16 +47,16 @@ public class VehicleController {
         return "redirect:";
     }
 
-    @RequestMapping(value = "type/edit/(vehicleId)", method = RequestMethod.GET)
+    @RequestMapping(value = "vehicle/edit/(vehicleId)", method = RequestMethod.GET)
     public String displayEditVehicleForm(Model model, @PathVariable int vehicleId) {
         Vehicle editVehicle = vehicleDao.findById(vehicleId).get();
 
         model.addAttribute("vehicle", editVehicle);
         model.addAttribute("title", "Ember: Edit Vehicle");
-        return "type/edit/(vehicleId)";
+        return "vehicle/edit/(vehicleId)";
     }
 
-    @RequestMapping(value = "type/edit/(vehicleId)", method = RequestMethod.POST)
+    @RequestMapping(value = "vehicle/edit/(vehicleId)", method = RequestMethod.POST)
     public String processEditVehicleForm(int vehicle_id, String licensePlate, String make, String model, String color) {
 
         Vehicle editVehicle = vehicleDao.findById(vehicle_id).get();

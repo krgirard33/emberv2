@@ -19,7 +19,7 @@ public class TicketTypeController {
     @Autowired
     TicketTypeDao ticketTypeDao;
 
-    @RequestMapping(value = "")
+    @RequestMapping(value = {"", "index"})
     public String index(Model model) {
         model.addAttribute("title", "Ember: Ticket Types");
         model.addAttribute("ticketTypes", ticketTypeDao.findAll());
