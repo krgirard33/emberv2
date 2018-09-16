@@ -7,7 +7,7 @@
 <nav th:replace="fragments :: navigation"></nav>
 
 <hr/>
-<p th:unless="${vehicles.size()}">No users yet</p>
+<p th:unless="${users.size()}">No users yet</p>
 
 <table class="table">
 
@@ -21,11 +21,13 @@
     <tr th:each="user : ${users}">
         <td th:text="${user.id}"></td>
         <td th:text="${user.username}"></td>
-        <td th:text="${user.role}"></td>
+        <td >Not yet installed</td>
         <td>
             <a th:href="@{'/user/edit/'+${user.id}}">Edit</a>
         </td>
     </tr>
 </table>
+<p>Edit is not yet working</p>
+<div><a href="/user/add">Add User</a></div>
 </body>
 </html>
