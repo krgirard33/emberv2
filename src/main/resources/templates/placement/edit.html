@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" style="max-width:600px;" th:object="${placement}">
+    <div class="form-group">
+        <label th:for="placementName">Name</label>
+        <input class="form-control" th:field="*{placementName}" />
+        <span th:errors="*{placementName}" class="error"></span>
+    </div>
+
+    <input type="hidden" th:value="${placement.id}" name="placement_id" />
+    <input type="submit" value="Edit Placement" />
+</form>
+
+</body>
+</html>
