@@ -1,14 +1,15 @@
 package com.nosin.emberv2.model;
-
+/*
 import javax.persistence.*;
 import java.io.Serializable;
-
-@Entity
+*/
+/* @Entity
 public class Ticket_List {
+*/
 
     /* Start of getting fk to Attendee */
     /* private Attendee attendee; */
-
+/*
     @Id
     @GeneratedValue
     private int id;
@@ -33,7 +34,7 @@ public class Ticket_List {
 
 
     /* Constructors */
-
+/*
     public int getId() {
         return id;
     }
@@ -114,6 +115,7 @@ public class Ticket_List {
         this.country = country;
     }
 
+
     public String getType() {
         return type;
     }
@@ -135,7 +137,7 @@ public class Ticket_List {
                 ", state='" + state + '\'' +
                 ", zip='" + zip + '\'' +
                 ", country='" + country + '\'' +
-                ", type='" + type + '\'' +
                 '}';
     }
 }
+*/
