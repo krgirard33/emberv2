@@ -18,7 +18,7 @@ public class Themecamp {
     @NotNull
     private String themecampType; // Type of camp - Sound, art, service, etc
 
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name = "themecamp_id")
     private List<Attendee> attendees = new ArrayList<>(); // Links attendee to their themecamp
 

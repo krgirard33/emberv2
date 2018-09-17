@@ -14,7 +14,7 @@ public class TicketType {
     @NotNull
     private String name; // Text for the ticket type (Adult, Child)
 
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name = "type_id")
     private List<Attendee> attendees = new ArrayList<>(); // Links attendee to their ticket type
 
