@@ -16,6 +16,12 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping("type")
 public class TicketTypeController {
+
+    /*
+    * There is the part of me that wonders if doing it as a enum might
+    * not have been better, as there is only 4 types: under 15, 15-20, 21+
+    */
+
     @Autowired
     TicketTypeDao ticketTypeDao;
 
