@@ -9,7 +9,7 @@ public class Attendee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(name = "ticket_num")
     private String ticket_num;
@@ -43,26 +43,30 @@ public class Attendee {
     private String phone;
 
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.ALL})
     private TicketType ticketType;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.ALL})
     private Themecamp themecamp;
+
+    @ManyToOne(cascade = {CascadeType.ALL})
+    private Placement placement;
 
     public Attendee() {
     }
 
-    public Attendee(int id, String ticket_num, String buyer_name,
+    public Attendee(Integer id, String ticket_num, String buyer_name,
                     String buyer_email, String first_name, String last_name,
                     String city, String state, String zipcode, String country,
                     String address1, String address2, int age, String burner_name,
-                    String email, String phone, TicketType ticketType, Themecamp themecamp) {
+                    String email, String phone, TicketType ticketType, Themecamp themecamp, Placement placement) {
         this.id = id;
         this.ticket_num = ticket_num;
         this.buyer_name = buyer_name;
         this.buyer_email = buyer_email;
         this.first_name = first_name;
         this.last_name = last_name;
+
         this.city = city;
         this.state = state;
         this.zipcode = zipcode;
@@ -75,13 +79,14 @@ public class Attendee {
         this.phone = phone;
         this.ticketType = ticketType;
         this.themecamp = themecamp;
+        this.placement = placement;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -216,6 +221,10 @@ public class Attendee {
     public Themecamp getThemecamp() { return themecamp; }
 
     public void setThemecamp(Themecamp themecamp) { this.themecamp = themecamp; }
+
+    public Placement getPlacement() { return placement; }
+
+    public void setPlacement(Placement placement) { this.placement = placement; }
 
     /**
      @OneToOne(targetEntity = Ticket_List.class, mappedBy = "ticket_list", fetch = FetchType.EAGER)

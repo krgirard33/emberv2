@@ -71,13 +71,13 @@ public class AttendeeController {
 
         newAttendee.setTicketType(type);
         newAttendee.setThemecamp(themecamp);
-
+        newAttendee.setPlacement(placement);
         attendeeDao.save(newAttendee);
         return "redirect:";
     }
 
     @RequestMapping(value = "edit/{attendeeId}", method = RequestMethod.GET)
-    public String displayEditAttendeeForm(Model model, @PathVariable int attendeeId, TicketType ticketType,
+    public String displayEditAttendeeForm(Model model, @PathVariable Integer attendeeId, TicketType ticketType,
                                           Themecamp themecamp, Placement placement) {
 
         Attendee editAttendee = attendeeDao.findById(attendeeId).get();
@@ -92,7 +92,7 @@ public class AttendeeController {
     }
 
     @RequestMapping(value = "edit/{attendeeId}", method = RequestMethod.POST)
-    public String processEditattendeeForm(int attendeeId, String first_name, String last_name, String burner_name,
+    public String processEditattendeeForm(@PathVariable Integer attendeeId, String first_name, String last_name, String burner_name,
                                           TicketType ticketType, Themecamp themecamp, Placement placement) {
 
         Attendee editAttendee = attendeeDao.findById(attendeeId).get();
@@ -102,6 +102,7 @@ public class AttendeeController {
         editAttendee.setBurner_name(burner_name);
         editAttendee.setTicketType(ticketType);
         editAttendee.setThemecamp(themecamp);
+        editAttendee.setPlacement(placement);
 
         attendeeDao.save(editAttendee);
         return "redirect:";

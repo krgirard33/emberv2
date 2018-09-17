@@ -93,9 +93,19 @@
             </option>
         </select>
     </div>
+    <div class="form-group">
+        <label th:for="placement">Placement</label>
+        <select name="placementId">
+            <option th:each = "placement : ${placements}"
+                    th:text = "${placement.placementName}"
+                    th:value = "${placement.id}"
+            >
+            </option>
+        </select>
+    </div>
 
-
-    <input type="hidden" th:value="${id}" name="attendee_id" />
+    <p th:text="${attendee.id}" name="attendee_id"></p>
+    <input type="hidden" th:value="${attendee.id}" name="attendee_id" />
     <input type="submit" value="Edit attendee" />
 </form>
 
