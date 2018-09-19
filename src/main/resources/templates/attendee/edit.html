@@ -12,6 +12,7 @@
         <label th:for="misc">Misc</label>
         <p th:text="*{ticket_num}"></p>
         <p th:text="*{buyer_name}"></p>
+        <p th:text="*{buyer_email}"></p>
     </div>
 
     <h1>Attendee Name & Age</h1>
@@ -35,6 +36,7 @@
         <input class="form-control" th:field="*{age}" />
         <span th:errors="*{age}" class="error"></span>
     </div>
+    <p>Current ticket type: <span th:text="*{ticketType.name}"></span></p>
     <div class="form-group">
         <label th:for="ticketType">Type</label>
         <select name="ticketTypeId">
@@ -51,6 +53,15 @@
         <label th:for="contact">Phone & Email</label>
         <input class="form-control" th:field="*{phone}" />
         <input class="form-control" th:field="*{email}" />
+        <span th:errors="*{phone}" class="error"></span>
+        <span th:errors="*{email}" class="error"></span>
+    </div>
+
+    <h1>Emergency Contact</h1>
+    <div class="form-group">
+        <label th:for="emergency_contact">Emergency Name & Phone</label>
+        <input class="form-control" th:field="*{contact_name}" />
+        <input class="form-control" th:field="*{contact_phone}" />
         <span th:errors="*{phone}" class="error"></span>
         <span th:errors="*{email}" class="error"></span>
     </div>
@@ -81,8 +92,14 @@
         <input class="form-control" th:field="*{zipcode}" />
         <span th:errors="*{zipcode}" class="error"></span>
     </div>
+    <div class="form-group">
+        <label th:for="country">Country</label>
+        <input class="form-control" th:field="*{country}" />
+        <span th:errors="*{country}" class="error"></span>
+    </div>
 
     <h1>Placement & Themecamp</h1>
+    <p>Current themecamp: <span th:text="*{themecamp.themecampName}"></span></p>
     <div class="form-group">
         <label th:for="themecamp">Themecamp</label>
         <select name="themecampId">
@@ -93,6 +110,7 @@
             </option>
         </select>
     </div>
+    <p>Current placement: <span th:text="*{placement.placementName}"></span></p>
     <div class="form-group">
         <label th:for="placement">Placement</label>
         <select name="placementId">

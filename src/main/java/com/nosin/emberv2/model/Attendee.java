@@ -41,6 +41,10 @@ public class Attendee {
     private String email;
     @Column(name = "phone")
     private String phone;
+    @Column(name = "contact_name")
+    private String contact_name;
+    @Column(name = "contact_phone")
+    private String contact_phone;
 
 
     @ManyToOne(cascade = {CascadeType.ALL})
@@ -59,14 +63,16 @@ public class Attendee {
                     String buyer_email, String first_name, String last_name,
                     String city, String state, String zipcode, String country,
                     String address1, String address2, int age, String burner_name,
-                    String email, String phone, TicketType ticketType, Themecamp themecamp, Placement placement) {
+                    String email, String phone, String contact_name, String contact_phone, TicketType ticketType,
+                    Themecamp themecamp, Placement placement) {
         this.id = id;
         this.ticket_num = ticket_num;
         this.buyer_name = buyer_name;
         this.buyer_email = buyer_email;
         this.first_name = first_name;
         this.last_name = last_name;
-
+        this.contact_name = contact_name;
+        this.contact_phone = contact_phone;
         this.city = city;
         this.state = state;
         this.zipcode = zipcode;
@@ -210,6 +216,14 @@ public class Attendee {
         this.phone = phone;
     }
 
+    public String getContact_name() { return contact_name; }
+
+    public void setContact_name(String contact_name) { this.contact_name = contact_name; }
+
+    public String getContact_phone() { return contact_phone; }
+
+    public void setContact_phone(String contact_phone) { this.contact_phone = contact_phone; }
+
     public TicketType getTicketType() {
         return ticketType;
     }
@@ -240,7 +254,4 @@ public class Attendee {
      this.ticket_list = ticket_list;
      }
      **/
-
-    /* Constructors */
-
 }

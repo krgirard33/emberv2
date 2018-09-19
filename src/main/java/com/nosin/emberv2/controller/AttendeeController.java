@@ -91,8 +91,12 @@ public class AttendeeController {
     }
 
     @RequestMapping(value = "edit/{attendeeId}", method = RequestMethod.POST)
-    public String processEditattendeeForm(@PathVariable Integer attendeeId, String first_name, String last_name, String burner_name,
-                                          TicketType ticketType, Themecamp themecamp, int placementId, int themecampId, int ticketTypeId) {
+    public String processEditattendeeForm(@PathVariable Integer attendeeId, String first_name, String last_name,
+                                          String burner_name, String address1, String address2, String city,
+                                          String zipcode, String state, String country, String email, String phone, int age,
+                                          String buyer_name, String buyer_email, String contact_name, String contact_phone,
+                                          TicketType ticketType, Themecamp themecamp, int placementId, int themecampId,
+                                          int ticketTypeId) {
 
         Attendee editAttendee = attendeeDao.findById(attendeeId).get();
         Placement editPlacement = placementDao.findById(placementId).get();
@@ -103,6 +107,17 @@ public class AttendeeController {
         editAttendee.setFirst_name(first_name);
         editAttendee.setLast_name(last_name);
         editAttendee.setBurner_name(burner_name);
+        editAttendee.setAddress1(address1);
+        editAttendee.setAddress2(address2);
+        editAttendee.setCity(city);
+        editAttendee.setZipcode(zipcode);
+        editAttendee.setState(state);
+        editAttendee.setCountry(country);
+        editAttendee.setEmail(email);
+        editAttendee.setPhone(phone);
+        editAttendee.setAge(age);
+        editAttendee.setContact_name(contact_name);
+        editAttendee.setContact_phone(contact_phone);
         editAttendee.setTicketType(editTicketType);
         editAttendee.setThemecamp(editThemecamp);
         editAttendee.setPlacement(editPlacement);
